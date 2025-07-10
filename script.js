@@ -56,8 +56,17 @@ const GameBoard = (
 
         // Reset the board to open
         const resetBoard = () => {
-            board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+            for (let i = 0; i < board.length; i++) {
+                for (let j = 0; j < board[i].length; j++) {
+                    board[i][j] = 0;
+                }
+            }
         };
+
+        // Get the values of specific cell in the board
+        const getCellValue = (rowId, colId) => {
+            return board[rowId][colId];
+        }
 
         // Log the playermove
         // Returns true if the move was valid, false if not
@@ -111,14 +120,16 @@ const GameBoard = (
                         (board[coord1[0]][coord1[1]] === checkPlayerId) &&
                         (board[coord2[0]][coord2[1]] === checkPlayerId)
                     ) {
-                        // Set values for return
+                        // Set values for return if winner found
                         winningPlayerId = checkPlayerId;
                         winningPattern = patternId;
                     }
+                    // Break inner For loop if winner found
                     if (winningPlayerId !== -1) {
                         break;
                     }
                 }
+                // Break outer for loop if winner found
                 if (winningPlayerId !== -1) {
                     break;
                 }
@@ -139,14 +150,10 @@ const GameBoard = (
         return {
             printBoard,
             resetBoard,
+            getCellValue,
             playerMove,
             checkForWinner,
         }
     }
 
 )();
-
-const adam = createPlayer(1);
-console.log(adam.getPlayerName());
-adam.setPlayerName('Adam');
-console.log(adam.getPlayerName());
