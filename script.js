@@ -14,7 +14,7 @@ const createPlayer = function (id) {
         incrementScore() {
             score += 1;
         },
-        getCurrentScore() {
+        getScore() {
             return score;
         },
         resetScore() {
