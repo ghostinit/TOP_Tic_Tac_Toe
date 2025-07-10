@@ -1,3 +1,4 @@
+/* MAIN LAYOUT */
 div {
     border: 1px solid black;
 }
@@ -15,6 +16,7 @@ main {
 
 .play-area {
     width: 70vw;
+    max-width: 850px;
     display: grid;
     grid-template-rows: 15vh 70vh 5vh;
 }
@@ -46,6 +48,12 @@ main {
     align-items: center;
 }
 
+.game-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .board-area {
     display: flex;
     justify-content: center;
@@ -64,4 +72,14 @@ main {
 .message-area {
     display: flex;
     justify-content: center;
+}
+
+/* ======================== STYLING FOR GAMEPLAY ==================== */
+
+.player-turn-active {
+    background-color: lightgray;
+}
+
+.hide-element {
+    visibility: hidden;
 }

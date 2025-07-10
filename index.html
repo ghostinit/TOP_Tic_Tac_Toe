@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
-    <script src="scripts/player.js" defer></script>
+    <!-- <script src="scripts/player.js" defer></script> -->
     <script src="scripts/gameboard.js" defer></script>
     <script src="scripts/gamemanager.js" defer></script>
+    <script src="scripts/UImanager.js" defer></script>
     <title>Tic Tac Toe</title>
 </head>
 
@@ -17,43 +18,47 @@
     <main>
         <div class="play-area">
             <div class="score-area">
-                <div class="player-display">
+                <div id="player1-display" class="player-display">
                     <div class="player-name">
                         <div></div>
-                        <h2 class="player-name-header">PLAYER 1</h2>
-                        <button class="btn-edit-player-name"></button>
+                        <h2 id="player1-name" class="player-name-header">PLAYER 1</h2>
+                        <button id="btn-edit-player1-name" class="btn-edit-player-name"></button>
                     </div>
                     <div class="player-score">
-                        <h3>0</h3>
+                        <h3 id="player1-score">0</h3>
                     </div>
                 </div>
-                <div class="game-control"></div>
-                <div class="player-display">
+                <div class="game-control">
+                    <button id="btn-game-control">
+                        CONTROL BTN
+                    </button>
+                </div>
+                <div id="player2-display" class="player-display">
                     <div class="player-name">
                         <div></div>
-                        <h2 class="player-name-header">PLAYER 2</h2>
-                        <button class="btn-edit-player-name"></button>
+                        <h2 id="player2-name" class="player-name-header">PLAYER 2</h2>
+                        <button id="btn-edit-player2-name" class="btn-edit-player-name"></button>
                     </div>
                     <div class="player-score">
-                        <h3>0</h3>
+                        <h3 id="player2-score">0</h3>
                     </div>
                 </div>
             </div>
             <div class="board-area">
                 <div class="board">
-                    <div id="0,0">0 0</div>
-                    <div id="0,1">0 1</div>
-                    <div id="0,2">0 2</div>
-                    <div id="1,0">1 0</div>
-                    <div id="1,1">1 1</div>
-                    <div id="1,2">1 2</div>
-                    <div id="2,0">2 0</div>
-                    <div id="2,1">2 1</div>
-                    <div id="2,2">2 2</div>
+                    <div class="board-cell" id="0-0">0 0</div>
+                    <div class="board-cell" id="0-1">0 1</div>
+                    <div class="board-cell" id="0-2">0 2</div>
+                    <div class="board-cell" id="1-0">1 0</div>
+                    <div class="board-cell" id="1-1">1 1</div>
+                    <div class="board-cell" id="1-2">1 2</div>
+                    <div class="board-cell" id="2-0">2 0</div>
+                    <div class="board-cell" id="2-1">2 1</div>
+                    <div class="board-cell" id="2-2">2 2</div>
                 </div>
             </div>
             <div class="message-area">
-                <h2>PLAYER 1's Turn</h2>
+                <h2 id="UI-message">PLAYER 1's Turn</h2>
             </div>
         </div>
     </main>
