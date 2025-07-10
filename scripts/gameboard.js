@@ -119,7 +119,7 @@ const GameBoard = (
                 }
 
             }
-            return { winner: winningPlayerId, pattern: winningPattern };
+            return { winner: winningPlayerId, pattern: winningPatterns[winningPattern] };
         }
         return {
             printBoard,

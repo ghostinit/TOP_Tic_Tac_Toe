@@ -30,19 +30,70 @@ const GameManager = (
         let gameOver = false;
         let gameActive = false;
         let playerTurn = 1;
+        let lastWinner = 0;
+        let lastWinningPattern = [];
         const board = GameBoard;
 
         const isGameActive = () => {
             return gameActive;
         };
 
-        const setGameInactive = () => {
+        const resetGameActive = () => {
             gameActive = false;
         };
 
         const setGameActive = () => {
             gameActive = true;
         };
+
+        const isGameOver = () => {
+            return gameOver;
+        };
+
+        const setGameOver = () => {
+            gameOver = true;
+        };
+
+        const resetGameOver = () => {
+            gameOver = false;
+        };
+
+        const getLastWinner = () => {
+            return lastWinner - 1;
+        };
+
+        const getWinningPattern = () => {
+            return lastWinningPattern;
+        };
+
+        const makeMove = (coord) => {
+            const coords = coord.split('-');
+            const rowId = coords[0];
+            const colId = coords[1];
+            const isValidMove = board.playerMove(playerTurn, rowId, colId);
+            if (isValidMove) {
+                const winResults = board.checkForWinner();
+                if (winResults.winner === -1) {
+                    // No winner
+                    gameOver = true;
+                    gameActive = false;
+                    lastWinner = 0;
+                } else if (winResults.winner === 0) {
+                    // Game can continue
+
+                } else {
+                    // Somebody won!
+                    gameOver = true;
+                    gameActive = false;
+                    lastWinner = winResults.winner;
+                    players[lastWinner - 1].incrementScore();
+                    lastWinningPattern = winResults.pattern;
+                }
+                playerTurn = 3 - playerTurn;
+            }
+            return isValidMove;
+        };
+
 
         const getCellValue = (rowId, colId) => {
             return board.getCellValue(rowId, colId);
@@ -57,9 +108,16 @@ const GameManager = (
         }
 
         return {
+            players,
             isGameActive,
-            setGameInactive,
+            resetGameActive,
             setGameActive,
+            isGameOver,
+            setGameOver,
+            resetGameOver,
+            getLastWinner,
+            getWinningPattern,
+            makeMove,
             getCellValue,
             whosTurnIsIt,
             resetGameBoard,
