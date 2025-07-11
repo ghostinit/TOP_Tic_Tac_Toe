@@ -1,20 +1,68 @@
 /* VARS */
 :root {
     --btn-border-radius: 20px;
+    --box-shadow-main: 0 0 10px 2px;
+    --background-opacity: 0.6;
 }
 
 :root.forest {
     --background-image: URL('../images/backgrounds/old-beech-forest-spain.jpg');
+    /* Also button background color */
+    --color-font-main: rgb(210, 250, 210);
+    --color-button-text: #004d00;
+    --color-button-bg-hover: #e9fae9;
+    --color-button-bg-active: #a5f8a5;
+    --box-shadow-color: #00a100;
+    --box-background-color: rgba(0, 77, 0, var(--background-opacity));
+    --edit-name-icon: URL('../icons/pencil_forest.svg');
+
+    --player1-font-color: #d2fad2;
+    --player1-bg-color: rgba(0, 77, 0, var(--background-opacity));
+
+    --player2-font-color: #004d00;
+    --player2-bg-color: rgba(210, 250, 210, var(--background-opacity));
+
+    --cell-available-color: rgba(175, 255, 175, 0.2);
 }
 
 :root.beach {
     --background-image: URL('../images/backgrounds/beautiful_beach.jpg');
-    --color-font-main: black;
+    /* Also button background color */
+    --color-font-main: rgb(0, 48, 138);
+    --color-button-text: #c2d7ff;
+    --color-button-bg-hover: #0044c2;
+    --color-button-bg-active: #00205c;
+    --box-shadow-color: #195ad3;
+    --box-background-color: rgba(194, 215, 255, var(--background-opacity));
+    --edit-name-icon: URL('../icons/pencil_beach.svg');
+
+    --player1-font-color: #00308A;
+    --player1-bg-color: rgba(194, 215, 255, var(--background-opacity));
+
+    --player2-font-color: #c2d7ff;
+    --player2-bg-color: rgba(0, 48, 138, var(--background-opacity));
+
+    --cell-available-color: rgba(194, 255, 250, 0.2);
 }
 
 :root.city {
     --background-image: URL('../images/backgrounds/city_at_night.jpg');
-    --color-font-main: black;
+    /* Also button background color */
+    --color-font-main: rgb(224, 179, 255);
+    --color-button-text: #3e0068;
+    --color-button-bg-hover: #ecdbf7;
+    --color-button-bg-active: #d194fa;
+    --box-shadow-color: #c061ff;
+    --box-background-color: rgba(62, 0, 104, var(--background-opacity));
+    --edit-name-icon: URL('../icons/pencil_city.svg');
+
+    --player1-font-color: #E0B3FF;
+    --player1-bg-color: rgba(62, 0, 104, var(--background-opacity));
+
+    --player2-font-color: #3e0068;
+    --player2-bg-color: rgba(224, 179, 255, var(--background-opacity));
+
+    --cell-available-color: rgba(228, 194, 255, 0.2);
 }
 
 body {
@@ -22,8 +70,159 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    height: 100vh;
+    height: 105vh;
     /* Ensures the body fills the viewport height */
     margin: 0;
     /* Removes default margin */
+}
+
+body {
+    color: var(--color-font-main);
+}
+
+a {
+    color: var(--color-font-main);
+    transition: 0.2s ease;
+    font-size: 1.1em;
+}
+
+a:hover {
+    transform: scale(1.05);
+    font-weight: bold;
+}
+
+button {
+    border: none;
+    border-radius: var(--btn-border-radius);
+    padding-inline: 10px;
+    padding-block: 2px;
+    background-color: var(--color-font-main);
+    color: var(--color-button-text);
+    font-size: 1.25em;
+    transition: 0.2s ease;
+    box-shadow: var(--box-shadow-main) var(--box-shadow-color);
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: var(--color-button-bg-hover);
+}
+
+button:active {
+    transform: scale(0.95);
+    background-color: var(--color-button-bg-active);
+}
+
+h1,
+h2,
+h3,
+h4,
+.unselectable {
+    user-select: none;
+}
+
+#player1-display {
+    background-color: var(--player1-bg-color);
+    color: var(--player1-font-color);
+}
+
+#player2-display {
+    background-color: var(--player2-bg-color);
+    color: var(--player2-font-color);
+}
+
+#player1-display,
+#player2-display {
+    border-radius: var(--btn-border-radius);
+}
+
+.computer-toggle-container,
+#attrib-link,
+#UI-message {
+    background-color: var(--box-background-color);
+    border-radius: var(--btn-border-radius);
+}
+
+.computer-toggle-container,
+#attrib-link,
+#UI-message {
+    padding-inline: 10px;
+    padding-block: 2px;
+}
+
+.player-score {
+    font-size: 1.75em;
+}
+
+.slider {
+    background-color: var(--color-button-text);
+    border: 1px solid var(--color-font-main);
+}
+
+.slider:before {
+    background-color: var(--color-font-main);
+}
+
+input:checked+.slider {
+    background-color: var(--color-button-bg-hover);
+}
+
+input:checked+.slider:before {
+    transform: translateX(24px);
+    background-color: var(--color-button-text);
+}
+
+.btn-edit-player-name {
+    background-image: var(--edit-name-icon);
+    margin-block-start: 20%;
+    margin-inline-start: 20%;
+    height: 2em;
+    width: 2em;
+    transition: 0.2s ease;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.btn-edit-player-name:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.btn-edit-player-name:active {
+    transform: scale(0.95);
+}
+
+
+/* STYLING FOR GAME PLAY */
+.board-cell {
+    transition: 0.3s ease;
+    border: 1px solid var(--color-font-main);
+    border-radius: var(--btn-border-radius);
+}
+
+.player1-occupied {
+    background-color: var(--player1-bg-color);
+}
+
+.player2-occupied {
+    background-color: var(--player2-bg-color);
+}
+
+.player-turn-active {
+    border: 2px solid var(--color-font-main);
+}
+
+
+.cell-available {
+    background-color: var(--cell-available-color);
+}
+
+.game-winner {
+    background-color: orange;
+}
+
+.winning-cell {
+    background-color: lightgreen;
 }

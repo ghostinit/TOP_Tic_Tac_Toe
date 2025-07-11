@@ -32,7 +32,9 @@
         <!-- PLAY AGAINST COMPUTER TOGGLE -->
         <div class="header-flex">
             <div class="computer-toggle-container">
-                Play Against Computer
+                <div class="unselectable">
+                    Play Against Computer
+                </div>
                 <label class="switch" id="computer-toggle-switch">
                     <input type="checkbox" class="computer-toggle" />
                     <span class="slider"></span>
@@ -50,7 +52,7 @@
                     <div class="player-name">
                         <div id="player1-icon" class="player-icon"></div>
                         <h2 id="player1-name" class="player-name-header">PLAYER 1</h2>
-                        <button id="btn-edit-player1-name" class="btn-edit-player-name"></button>
+                        <span id="btn-edit-player1-name" class="btn-edit-player-name"></span>
                     </div>
                     <div class="player-score">
                         <h3 id="player1-score">0</h3>
@@ -70,7 +72,7 @@
                     <div class="player-name">
                         <div id="player2-icon" class="player-icon"></div>
                         <h2 id="player2-name" class="player-name-header">PLAYER 2</h2>
-                        <button id="btn-edit-player2-name" class="btn-edit-player-name"></button>
+                        <span id="btn-edit-player2-name" class="btn-edit-player-name"></span>
                     </div>
                     <div class="player-score">
                         <h3 id="player2-score">0</h3>
@@ -100,7 +102,7 @@
 
             <!-- BACKGROUND PHOTO ATTRIBUTION -->
             <div class="photo-attrib">
-                <a id="attrib-link" href=""></a>
+                <a id="attrib-link" href="" target="_blank"></a>
             </div>
         </div>
     </main>

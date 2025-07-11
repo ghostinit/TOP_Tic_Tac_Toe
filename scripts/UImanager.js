@@ -304,6 +304,8 @@ const UIManager = (
                 for (let j = 0; j <= 2; j++) {
                     const cellToUpdate = document.querySelector(`[id="${i}-${j}"]`);
                     cellToUpdate.classList.remove('winning-cell');
+                    cellToUpdate.classList.remove('player1-occupied');
+                    cellToUpdate.classList.remove('player2-occupied');
                 }
             }
         }
@@ -322,6 +324,11 @@ const UIManager = (
                         cellToUpdate.classList.add('cell-available');
                     } else {
                         cellToUpdate.classList.remove('cell-available');
+                        if (cellValue === 1) {
+                            cellToUpdate.classList.add('player1-occupied');
+                        } else if (cellValue === 2) {
+                            cellToUpdate.classList.add('player2-occupied');
+                        }
                     }
                 }
             }
