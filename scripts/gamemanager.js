@@ -70,7 +70,7 @@ const GameManager = (
             gameOver = false;
         };
 
-        const getLastWinner = () => {
+        const getLastWinnerIndex = () => {
             return lastWinner - 1;
         };
 
@@ -147,7 +147,7 @@ const GameManager = (
             isGameOver,
             setGameOver,
             resetGameOver,
-            getLastWinner,
+            getLastWinnerIndex,
             getWinningPattern,
             makeMove,
             getCellValue,
