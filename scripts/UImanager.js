@@ -318,7 +318,7 @@ const UIManager = (
                     // Get reference to the cell
                     const cellToUpdate = document.querySelector(`[id="${i}-${j}"]`);
                     // Set the display
-                    cellToUpdate.textContent = cellValues[cellValue];
+                    //cellToUpdate.textContent = cellValues[cellValue];
                     // If no one has picked the cell yet, highlight it
                     if (cellValue === 0) {
                         cellToUpdate.classList.add('cell-available');

@@ -1,3 +1,58 @@
+/* FONTS */
+@font-face {
+    font-family: 'Orbitron';
+    src: url('../fonts/orbitron-variablefont_wght-webfont.woff2') format('woff2'),
+        url('../fonts/orbitron-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Audiowide';
+    src: url('../fonts/audiowide-regular-webfont.woff2') format('woff2'),
+        url('../fonts/audiowide-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fredoka';
+    src: url('../fonts/fredoka-variablefont_wdthwght-webfont.woff2') format('woff2'),
+        url('../fonts/fredoka-variablefont_wdthwght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url('../fonts/josefinsans-variablefont_wght-webfont.woff2') format('woff2'),
+        url('../fonts/josefinsans-variablefont_wght-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Knewave';
+    src: url('../fonts/knewave-regular-webfont.woff2') format('woff2'),
+        url('../fonts/knewave-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Shizuru';
+    src: url('../fonts/shizuru-regular-webfont.woff2') format('woff2'),
+        url('../fonts/shizuru-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* VARS */
 :root {
     --btn-border-radius: 20px;
@@ -6,6 +61,9 @@
 }
 
 :root.forest {
+    --font-main: 'Shizuru', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-sub: 'Fredoka', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
     --background-image: URL('../images/backgrounds/old-beech-forest-spain.jpg');
     /* Also button background color */
     --color-font-main: rgb(210, 250, 210);
@@ -23,9 +81,16 @@
     --player2-bg-color: rgba(210, 250, 210, var(--background-opacity));
 
     --cell-available-color: rgba(175, 255, 175, 0.2);
+
+    --player1-bg-image: URL('../images/forest_player1.png');
+    --player2-bg-image: URL('../images/forest_player2.png');
 }
 
 :root.beach {
+    --font-main: 'Knewave', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-sub: 'Josefin Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
     --background-image: URL('../images/backgrounds/beautiful_beach.jpg');
     /* Also button background color */
     --color-font-main: rgb(0, 48, 138);
@@ -43,9 +108,17 @@
     --player2-bg-color: rgba(0, 48, 138, var(--background-opacity));
 
     --cell-available-color: rgba(194, 255, 250, 0.2);
+
+    --player1-bg-image: URL('../images/beach_player1.png');
+    --player2-bg-image: URL('../images/beach_player2.png');
 }
 
 :root.city {
+    --font-main: 'Audiowide', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-sub: 'Orbitron', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
+
     --background-image: URL('../images/backgrounds/city_at_night.jpg');
     /* Also button background color */
     --color-font-main: rgb(224, 179, 255);
@@ -63,6 +136,9 @@
     --player2-bg-color: rgba(224, 179, 255, var(--background-opacity));
 
     --cell-available-color: rgba(228, 194, 255, 0.2);
+
+    --player1-bg-image: URL('../images/city_player1.png');
+    --player2-bg-image: URL('../images/city_player2.png');
 }
 
 body {
@@ -73,6 +149,7 @@ body {
     height: 105vh;
     /* Ensures the body fills the viewport height */
     margin: 0;
+    font-family: var(--font-main);
     /* Removes default margin */
 }
 
@@ -101,6 +178,7 @@ button {
     font-size: 1.25em;
     transition: 0.2s ease;
     box-shadow: var(--box-shadow-main) var(--box-shadow-color);
+    font-family: var(--font-sub);
 }
 
 button:hover {
@@ -142,6 +220,7 @@ h4,
 #UI-message {
     background-color: var(--box-background-color);
     border-radius: var(--btn-border-radius);
+    font-family: var(--font-sub)
 }
 
 .computer-toggle-container,
@@ -153,6 +232,21 @@ h4,
 
 .player-score {
     font-size: 1.75em;
+    font-family: var(--font-sub);
+}
+
+.player-icon {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+#player1-icon {
+    background-image: var(--player1-bg-image);
+}
+
+#player2-icon {
+    background-image: var(--player2-bg-image);
 }
 
 .slider {
@@ -175,6 +269,9 @@ input:checked+.slider:before {
 
 .btn-edit-player-name {
     background-image: var(--edit-name-icon);
+    background-color: var(--box-background-color);
+    border-radius: 5px;
+    padding: 4px;
     margin-block-start: 20%;
     margin-inline-start: 20%;
     height: 2em;
@@ -200,18 +297,28 @@ input:checked+.slider:before {
     transition: 0.3s ease;
     border: 1px solid var(--color-font-main);
     border-radius: var(--btn-border-radius);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.board-cell.cell-available:hover {
+    cursor: pointer;
 }
 
 .player1-occupied {
     background-color: var(--player1-bg-color);
+    background-image: var(--player1-bg-image);
 }
 
 .player2-occupied {
     background-color: var(--player2-bg-color);
+    background-image: var(--player2-bg-image);
 }
 
 .player-turn-active {
     border: 2px solid var(--color-font-main);
+    box-shadow: var(--box-shadow-main) var(--box-shadow-color);
 }
 
 
@@ -219,10 +326,44 @@ input:checked+.slider:before {
     background-color: var(--cell-available-color);
 }
 
-.game-winner {
-    background-color: orange;
+.game-winner,
+.winning-cell {
+    border-width: 3px;
+    border-style: solid;
+    border-color: var(--color-font-main);
+    /* starting color */
+    animation: pulse 1.5s infinite;
 }
 
-.winning-cell {
-    background-color: lightgreen;
+/* Keyframes define the pulsing effect */
+@keyframes pulse {
+    0% {
+        border-color: var(--color-font-main);
+        ;
+        box-shadow: 0 0 5px var(--color-font-main);
+        ;
+    }
+
+    50% {
+        border-color: var(--color-button-bg-active);
+        box-shadow: 0 0 20px var(--color-button-bg-active);
+    }
+
+    100% {
+        border-color: var(--color-button-bg-hover);
+        box-shadow: 0 0 5px var(--color-button-bg-hover);
+        ;
+    }
+}
+
+.modal-content {
+    background-color: var(--color-button-text);
+    color: var(--color-font-main);
+}
+
+#new-player-name {
+    background-color: var(--color-font-main);
+    color: var(--color-button-text);
+    font-size: 1.5em;
+    border: none;
 }
