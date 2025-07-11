@@ -10,6 +10,8 @@ const UIManager = (
         const btnEditP1Name = document.querySelector('#btn-edit-player1-name');
         const btnEditP2Name = document.querySelector('#btn-edit-player2-name');
         const playerDisplay = [document.querySelector('#player1-display'), document.querySelector('#player2-display')];
+        const togPlayAgainstComputer = document.querySelector('.computer-toggle');
+        const computerToggleSwitch = document.querySelector('#computer-toggle-switch');
 
         const btnCloseUpdateName = document.querySelector('.close-button');
         const updateNameModal = document.querySelector('#update-name-modal');
@@ -77,6 +79,11 @@ const UIManager = (
                 }
             });
 
+            computerToggleSwitch.addEventListener('click', () => {
+                const newValue = togPlayAgainstComputer.checked;
+                manager.setPlayAgainstComputer(newValue);
+            })
+
             // Set UI message
             UIMessage.textContent = "Click Start to Play!";
 
@@ -126,13 +133,28 @@ const UIManager = (
                 UIMessage.textContent = `${currentTurn.playerName}'s Turn!`;
                 playerDisplay[currentTurn.id].classList.add('player-turn-active')
                 playerDisplay[1 - currentTurn.id].classList.remove('player-turn-active');
+                if (currentTurn.id === 1 && manager.isComputerOpponent()) {
+                    makeComputerMove();
+                }
             } else {
                 wrapUpGame();
             }
 
         }
 
-
+        const makeComputerMove = () => {
+            let computerMoveValid = false;
+            let rowId;
+            let colId;
+            while (!computerMoveValid) {
+                rowId = Math.floor(Math.random() * 3);
+                colId = Math.floor(Math.random() * 3);
+                if (manager.getCellValue(rowId, colId) === 0) {
+                    computerMoveValid = true;
+                }
+            }
+            makeMove(`${rowId}-${colId}`);
+        };
 
         const wrapUpGame = () => {
             btnGameControl.classList.remove('hide-element');

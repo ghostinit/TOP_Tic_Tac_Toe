@@ -3,9 +3,21 @@ div {
     border: 1px solid black;
 }
 
-.page-header {
-    text-align: center;
-    height: 5vh;
+header {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-block: 15px;
+    margin-inline: auto;
+    max-width: 900px;
+}
+
+.header-flex {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 main {
@@ -183,4 +195,57 @@ main {
 .submit-button-flex {
     display: flex;
     justify-content: center;
+}
+
+/* =================== SLIDER TOGGLE STYLING ============================= */
+
+.computer-toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #5c3d1e;
+    border: 1px solid var(--color-font-primary);
+    transition: .4s;
+    border-radius: 25px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 19px;
+    width: 19px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #d6c3a6;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #a67c52;
+}
+
+input:checked+.slider:before {
+    transform: translateX(24px);
+    background-color: #fff2d8;
 }

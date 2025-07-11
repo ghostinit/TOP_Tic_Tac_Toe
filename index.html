@@ -14,7 +14,26 @@
 </head>
 
 <body>
-    <h1 class="page-header">TIC TAC TOE!</h1>
+    <header>
+        <div class="header-flex">
+            <button class="btn-theme-select">Forest</button>
+            <button class="btn-theme-select">Beach</button>
+            <button class="btn-theme-select">City</button>
+        </div>
+        <div class="header-flex">
+            <h1 class="page-header">TIC TAC TOE!</h1>
+        </div>
+        <div class="header-flex">
+            <div class="computer-toggle-container">
+                Play Against Computer
+                <label class="switch" id="computer-toggle-switch">
+                    <input type="checkbox" class="computer-toggle" />
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </header>
+
     <main>
         <div class="play-area">
             <div class="score-area">

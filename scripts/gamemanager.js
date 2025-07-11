@@ -32,7 +32,18 @@ const GameManager = (
         let playerTurn = 1;
         let lastWinner = 0;
         let lastWinningPattern = [];
+        let playAgainstComputer = false;
+
         const board = GameBoard;
+
+        const setPlayAgainstComputer = (value) => {
+            console.log(`setting play against computer mode: ${value}`)
+            playAgainstComputer = value;
+        };
+
+        const isComputerOpponent = () => {
+            return playAgainstComputer;
+        }
 
         const isGameActive = () => {
             return gameActive;
@@ -109,6 +120,8 @@ const GameManager = (
 
         return {
             players,
+            setPlayAgainstComputer,
+            isComputerOpponent,
             isGameActive,
             resetGameActive,
             setGameActive,
