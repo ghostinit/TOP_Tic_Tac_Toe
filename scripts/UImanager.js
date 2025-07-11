@@ -10,6 +10,7 @@ const UIManager = (
         const btnResetScores = document.querySelector('#btn-reset-scores');
         const btnCloseUpdateName = document.querySelector('.close-button');
         const btnCloseResultModal = document.querySelector('#btn-close-game-result-modal');
+        const btnsThemeButtons = Array.from(document.querySelectorAll('.btn-theme-select'));
 
         // OTHER INPUTS
         const togPlayAgainstComputer = document.querySelector('.computer-toggle');
@@ -30,6 +31,7 @@ const UIManager = (
         // MAIN ELEMENTS
         const gameGrid = document.querySelector('.board');
         const UIMessage = document.querySelector('#UI-message');
+        const attribLink = document.querySelector('#attrib-link');
 
         // CELL VALUES BASED ON THEME AND STATE
         const cellValues = ['', 'X', 'O'];
@@ -41,6 +43,18 @@ const UIManager = (
 
         }
 
+        // Background image attributions
+        const themeIds = {
+            forest: 0,
+            beach: 1,
+            city: 2
+        }
+        let currentThemeId = themeIds.forest;
+        const attributions = [
+            { 'attrib': 'Background image by wirestock on freepik.com', 'link': 'https://www.freepik.com/author/wirestock' },
+            { 'attrib': 'Background image mrsiraphol on freepik.com', 'link': 'https://www.freepik.com/author/mrsiraphol' },
+            { 'attrib': 'Background image evening_tao on freepik.com', 'link': 'https://www.freepik.com/author/evening-tao' }];
+
         // MODULE VARS
         let controlBtnAction = controlButtonActions.NONE;
         let updatingNameFor = 0;
@@ -50,12 +64,26 @@ const UIManager = (
         // sets up event listeners and prepares UI to start the game
         const setupGame = () => {
             // Add event listeners
+
+            // Set theme
+            btnsThemeButtons.forEach((btn) => {
+                btn.addEventListener('click', (event) => {
+                    const btn = event.target.closest('.btn-theme-select');
+                    if (btn) {
+                        const newTheme = btn.id;
+                        const root = document.documentElement;
+                        root.className = newTheme;
+                        currentThemeId = themeIds[newTheme];
+                        setAttribution();
+                    }
+                });
+            })
+
             gameGrid.addEventListener('click', (event) => {
                 // Grabs id when cell is clicked
                 const cell = event.target.closest('.board-cell');
                 if (cell) {
                     const cellId = cell.id;
-                    console.log(`Cell: ${cellId} clicked`);
                     // If the gameActive = false then
                     // all calls to makeMove will be ignored
                     makeMove(cellId);
@@ -136,10 +164,18 @@ const UIManager = (
             // Set UI message
             UIMessage.textContent = "Click Start to Play!";
 
+            // Set attrib link
+            setAttribution();
+
             // Set control button text
             btnGameControl.textContent = "START";
             controlBtnAction = controlButtonActions.START;
             updateGameBoard();
+        };
+
+        const setAttribution = () => {
+            attribLink.textContent = attributions[currentThemeId]['attrib'];
+            attribLink.setAttribute('href', attributions[currentThemeId]['link']);
         };
 
         const startGame = () => {

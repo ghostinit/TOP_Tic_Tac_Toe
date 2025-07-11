@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="forest">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/theme.css">
     <!-- <script src="scripts/player.js" defer></script> -->
     <script src="scripts/gameboard.js" defer></script>
     <script src="scripts/gamemanager.js" defer></script>
@@ -18,9 +19,9 @@
 
         <!-- THEME SELECTION BUTTONS -->
         <div class="header-flex">
-            <button class="btn-theme-select">Forest</button>
-            <button class="btn-theme-select">Beach</button>
-            <button class="btn-theme-select">City</button>
+            <button class="btn-theme-select" id="forest">Forest</button>
+            <button class="btn-theme-select" id="beach">Beach</button>
+            <button class="btn-theme-select" id="city">City</button>
         </div>
 
         <!-- PAGE TITLE -->
@@ -95,6 +96,11 @@
             <!-- UI MESSAGE AREA -->
             <div class="message-area">
                 <h2 id="UI-message">PLAYER 1's Turn</h2>
+            </div>
+
+            <!-- BACKGROUND PHOTO ATTRIBUTION -->
+            <div class="photo-attrib">
+                <a id="attrib-link" href=""></a>
             </div>
         </div>
     </main>

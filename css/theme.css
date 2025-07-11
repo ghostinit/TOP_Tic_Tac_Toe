@@ -1,0 +1,29 @@
+/* VARS */
+:root {
+    --btn-border-radius: 20px;
+}
+
+:root.forest {
+    --background-image: URL('../images/backgrounds/old-beech-forest-spain.jpg');
+}
+
+:root.beach {
+    --background-image: URL('../images/backgrounds/beautiful_beach.jpg');
+    --color-font-main: black;
+}
+
+:root.city {
+    --background-image: URL('../images/backgrounds/city_at_night.jpg');
+    --color-font-main: black;
+}
+
+body {
+    background-image: var(--background-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    /* Ensures the body fills the viewport height */
+    margin: 0;
+    /* Removes default margin */
+}
