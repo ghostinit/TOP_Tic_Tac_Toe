@@ -15,14 +15,20 @@
 
 <body>
     <header>
+
+        <!-- THEME SELECTION BUTTONS -->
         <div class="header-flex">
             <button class="btn-theme-select">Forest</button>
             <button class="btn-theme-select">Beach</button>
             <button class="btn-theme-select">City</button>
         </div>
+
+        <!-- PAGE TITLE -->
         <div class="header-flex">
             <h1 class="page-header">TIC TAC TOE!</h1>
         </div>
+
+        <!-- PLAY AGAINST COMPUTER TOGGLE -->
         <div class="header-flex">
             <div class="computer-toggle-container">
                 Play Against Computer
@@ -37,9 +43,11 @@
     <main>
         <div class="play-area">
             <div class="score-area">
+
+                <!-- PLAYER 1 DISPLAY -->
                 <div id="player1-display" class="player-display">
                     <div class="player-name">
-                        <div></div>
+                        <div id="player1-icon" class="player-icon"></div>
                         <h2 id="player1-name" class="player-name-header">PLAYER 1</h2>
                         <button id="btn-edit-player1-name" class="btn-edit-player-name"></button>
                     </div>
@@ -47,14 +55,19 @@
                         <h3 id="player1-score">0</h3>
                     </div>
                 </div>
+
+                <!-- START GAME BUTTON -->
                 <div class="game-control">
                     <button id="btn-game-control">
                         CONTROL BTN
                     </button>
+                    <button id="btn-reset-scores">Reset Scores</button>
                 </div>
+
+                <!-- PLAYER 2 DISPLAY -->
                 <div id="player2-display" class="player-display">
                     <div class="player-name">
-                        <div></div>
+                        <div id="player2-icon" class="player-icon"></div>
                         <h2 id="player2-name" class="player-name-header">PLAYER 2</h2>
                         <button id="btn-edit-player2-name" class="btn-edit-player-name"></button>
                     </div>
@@ -63,6 +76,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- GAME BOARD -->
             <div class="board-area">
                 <div class="board">
                     <div class="board-cell" id="0-0">0 0</div>
@@ -76,12 +91,15 @@
                     <div class="board-cell" id="2-2">2 2</div>
                 </div>
             </div>
+
+            <!-- UI MESSAGE AREA -->
             <div class="message-area">
                 <h2 id="UI-message">PLAYER 1's Turn</h2>
             </div>
         </div>
     </main>
 
+    <!-- UPDATE PLAYER NAME MODAL -->
     <div id="update-name-modal" class="modal hidden">
         <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
             <span class="close-button" role="button" tabindex="0" aria-label="Close">&times;</span>
@@ -100,6 +118,22 @@
                     <button id="submit-new-name-button" type="submit" aria-label="Update Name">UPDATE</button>
                 </div>
 
+            </form>
+        </div>
+    </div>
+
+    <!-- GAME RESULT MODAL -->
+    <div id="game-result-modal" class="modal hidden">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <!-- <span class="close-button" role="button" tabindex="0" aria-label="Close">&times;</span> -->
+            <h2 class="modal-title">GAME OVER!</h2>
+            <form action="">
+                <div class="form-row">
+                    <p class="modal-message"></p>
+                </div>
+                <div class="submit-button-flex">
+                    <button id="btn-close-game-result-modal">CLOSE</button>
+                </div>
             </form>
         </div>
     </div>
