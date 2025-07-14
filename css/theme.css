@@ -147,10 +147,8 @@ body {
     background-size: cover;
     background-position: center center;
     height: 105vh;
-    /* Ensures the body fills the viewport height */
     margin: 0;
     font-family: var(--font-main);
-    /* Removes default margin */
 }
 
 body {
